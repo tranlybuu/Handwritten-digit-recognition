@@ -41,8 +41,8 @@ def MyProject():
 	pred = predict(Theta1, Theta2, vec / 255)
 
 	# Hiển thị kết quả
-	l1 = Label(window, text="Dự đoán đây là số " + str(pred[0]), font=('Algerian', 20))
-	l1.place(x=230, y=420)
+	l1 = Label(window, text="Dự đoán đây là số " + str(pred[0]), font=('Arial', 20))
+	l1.place(x=170, y=420)
 
 
 lastx, lasty = None, None
@@ -71,16 +71,16 @@ def draw_lines(event):
 
 
 # Tên GUI
-L1 = Label(window, text="Nhận diện chữ viết tay", font=('Algerian', 25), fg="blue")
-L1.place(x=35, y=10)
+L1 = Label(window, text="Nhận diện chữ viết tay", font=('Arial', 25), fg="blue")
+L1.place(x=130, y=10)
 
 # Nút để xóa canvas
-b1 = Button(window, text="Xóa", font=('Algerian', 15), bg="orange", fg="black", command=clear_widget)
+b1 = Button(window, text="Xóa", width=7, font=('Arial', 15), bg="orange", fg="black", command=clear_widget)
 b1.place(x=120, y=370)
 
 # Nút dự đoán chữ số được vẽ trên canvas
-b2 = Button(window, text="Dự đoán", font=('Algerian', 15), bg="white", fg="red", command=MyProject)
-b2.place(x=320, y=370)
+b2 = Button(window, text="Dự đoán", font=('Arial', 15), bg="yellow", fg="black", command=MyProject)
+b2.place(x=380, y=370)
 
 # Đặt kích thước của canvas
 cv = Canvas(window, width=350, height=290, bg='black')

@@ -9,9 +9,9 @@ from scipy.optimize import minimize
 # Đọc dữ liệu từ file MNIST-ORIGINAL
 data = loadmat('mnist-original.mat')
 X = data['data']
-X = X.transpose()
- 
+
 # Chuẩn hóa dữ liệu
+X = X.transpose()
 X = X / 255
  
 # Trích xuất nhãn từ tệp mat
@@ -23,8 +23,8 @@ X_train = X[:60000, :]
 y_train = y[:60000]
  
 # Tách dữ liệu thành bộ thử nghiệm với 10.000 mẫu
-X_test = X[60000:, :]
-y_test = y[60000:]
+X_test = X[10000:, :]
+y_test = y[10000:]
  
 m = X.shape[0]
 input_layer_size = 784  # Hình ảnh có kích thước 28x28 nên sẽ chuyển thành 1x784
@@ -38,10 +38,10 @@ initial_Theta2 = initialise(num_labels, hidden_layer_size)
 # Bỏ cuộn các tham số vào một vectơ cột duy nhất
 initial_nn_params = np.concatenate((initial_Theta1.flatten(), initial_Theta2.flatten()))
 maxiter = 100
-lambda_reg = 0.1  # To avoid overfitting
+lambda_reg = 0.1  # hạn chế overfitting
 myargs = (input_layer_size, hidden_layer_size, num_labels, X_train, y_train, lambda_reg)
  
-# Gọi hàm tối thiểu để giảm thiểu cost function
+# Gọi hàm minimize để giảm thiểu cost function
 results = minimize(neural_network, x0=initial_nn_params, args=myargs,
           options={'disp': True, 'maxiter': maxiter}, method="L-BFGS-B", jac=True)
  
