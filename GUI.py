@@ -66,7 +66,7 @@ def event_activation(event):
 def draw_lines(event):
 	global lastx, lasty
 	x, y = event.x, event.y
-	cv.create_line((lastx, lasty, x, y), width=30, fill='white', capstyle=ROUND, smooth=TRUE, splinesteps=12)
+	cv.create_line((lastx, lasty, x, y), width=15, fill='white', capstyle=ROUND, smooth=TRUE, splinesteps=12)
 	lastx, lasty = x, y
 
 
