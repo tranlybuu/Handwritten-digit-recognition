@@ -26,7 +26,7 @@ def neural_network(nn_params, input_layer_size, hidden_layer_size, num_labels, X
     y_vect = np.zeros((m, 10))
     for i in range(m):
         y_vect[i, int(y[i])] = 1
- 
+
     # Tính toán hàm cost function
     J = (1 / m) * (np.sum(np.sum(-y_vect * np.log(a3) - (1 - y_vect) * np.log(1 - a3)))) + (lamb / (2 * m)) * (
                 sum(sum(pow(Theta1[:, 1:], 2))) + sum(sum(pow(Theta2[:, 1:], 2))))
